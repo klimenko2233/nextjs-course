@@ -20,7 +20,7 @@ export default async function CommentsPage() {
                             href={`comments/${comment.id}`}
                             className="text-blue-600 hover:underline"
                         >
-                                {comment.name}
+                                {comment.name} ({comment.email})
                         </Link>
                     </li>
                 ))}
