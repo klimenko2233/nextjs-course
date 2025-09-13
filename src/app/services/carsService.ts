@@ -25,3 +25,23 @@ export async function createCarApi(input: CarInput): Promise<ICar> {
     }
     return res.json();
 }
+
+export async function deleteCarApi(id:number):Promise<void>{
+    const res = await fetch(`${API_URL}/cars/${id}`,{
+        method: "DELETE",
+        cache: "no-store"
+    });
+    if (!res.ok) throw new Error("Error deleting car");
+}
+
+export async function editCarApi(id:number, input:CarInput):Promise<ICar>{
+    const res = await fetch(`${API_URL}/cars/${id}`,{
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(input),
+    });
+    if (!res.ok) throw new Error("Error editing car");
+    return res.json();
+}
