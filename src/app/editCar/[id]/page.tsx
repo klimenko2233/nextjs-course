@@ -6,7 +6,7 @@ interface Props {
 }
 
 export default async function EditCarPage({ params }: Props) {
-    const { id } = params;
+    const { id } = await params;
     const cars = await getAllCars();
     const car = cars.find(c => c.id === Number(id));
 
